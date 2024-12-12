@@ -11,6 +11,7 @@ const Login = () => {
     const navigate =useNavigate();
     const[emailId,setEmail]=useState("");
     const[password, setPassword]= useState("");
+    const [err,setErr]= useState("");
 
     const handleLogin=async()=>{
        try{
@@ -26,7 +27,8 @@ const Login = () => {
         return navigate("/list")
 
        }catch(err){
-        console.log(err)
+        setErr(err?.response?.data || "Something went wrong")
+        
 
        }
        
@@ -67,13 +69,17 @@ const Login = () => {
 
 
       </div>
-      
+     
       <div className="card-actions justify-center">
       <button 
       onClick={handleLogin}
       className="btn w-[300px] text-gray-700">LogIn</button>
     </div>
+    {err&&
+    <p className="text-red-500 text-xl">{err}</p>}
+
   </div>
+  
 </div>
     </div>
   )
