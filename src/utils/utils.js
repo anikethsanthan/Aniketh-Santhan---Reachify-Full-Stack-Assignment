@@ -1,1 +1,1 @@
-export const Base_Url="http://localhost:8888"
+export const Base_Url="https://aniketh-santhan-backend-preachify-assignment.vercel.app"
